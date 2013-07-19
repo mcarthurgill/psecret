@@ -1,4 +1,4 @@
-class LandingsController < ActionController::Base
+class LandingsController < ApplicationController
 	def index
 	end
 end
