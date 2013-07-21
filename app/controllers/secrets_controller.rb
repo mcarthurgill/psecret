@@ -2,7 +2,10 @@ class SecretsController < ApplicationController
 	before_filter :authenticate_user!
 
 	def index
-		@secrets = Secret.all
+		@secret = Secret.where(viewed: false).first
+		if @secret
+			@secret.viewed = true
+		end
 	end
 
 	def create

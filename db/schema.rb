@@ -11,18 +11,19 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130721050127) do
+ActiveRecord::Schema.define(:version => 20130721202739) do
 
   create_table "secrets", :force => true do |t|
     t.string   "title"
     t.string   "content"
     t.integer  "user_id"
-    t.datetime "created_at",              :null => false
-    t.datetime "updated_at",              :null => false
+    t.datetime "created_at",                                 :null => false
+    t.datetime "updated_at",                                 :null => false
     t.string   "attachment_file_name"
     t.string   "attachment_content_type"
     t.string   "attachment_file_size"
     t.datetime "attachment_updated_at"
+    t.boolean  "viewed",                  :default => false
   end
 
   create_table "users", :force => true do |t|
