@@ -5,6 +5,7 @@ class SecretsController < ApplicationController
 		@secret = Secret.where(viewed: false).first
 		if @secret
 			@secret.viewed = true
+			@secret.save
 		end
 	end
 
