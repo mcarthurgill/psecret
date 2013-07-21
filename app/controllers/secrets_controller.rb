@@ -1,13 +1,19 @@
 class SecretsController < ApplicationController
 	before_filter :authenticate_user!
-	
+
 	def index
 		@secrets = Secret.all
 	end
 
 	def create
-		@secret = Secret.create(params[:secret])
-		redirect_to secret_path(@secret)
+		@secret = Secret.new(params[:secret])
+		if @secret.save
+			flash[:notice] = "Successfully saved!"
+			redirect_to secret_path(@secret)
+		else
+			flash[:alert] = "Please fill out the form correctly"
+			render :new
+		end
 	end
 
 	def new
